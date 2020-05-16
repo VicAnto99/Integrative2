@@ -1,13 +1,15 @@
 #Imports
 #import tkinter
+#holaksad
+
 from tkinter import *
 
 #Definitions
 def read():
     t = txt.get()
-    text.set(t)
+    #text.set(t)
 #Main
-text = StringVar()
+#text = StringVar()
 
 window = Tk()
 window.title("Integrative practice 2")
@@ -23,7 +25,7 @@ tool_bar.grid(row = 2, column = 0, padx = 5, pady = 5)
 in_2 = Label(tool_bar, text = "Insert in the next text box the name of your txt \n Example: test1.txt").grid(row = 0, column = 0, padx = 5, pady = 5)
 txt = Entry(tool_bar, width = 46).grid(row = 2, column = 0, padx = 5, pady = 5)
 but_1 = Button(tool_bar, text='Read', command = read).grid(row=3)
-in_3 = Label(tool_bar, textvariable = text).grid(row = 3, column = 1)
+in_3 = Label(tool_bar, textvariable = txt).grid(row = 3, column = 1)
 
 #Right_Frame_design
 right_frame = Frame(window, width = 670, height = 590, bg='grey')
