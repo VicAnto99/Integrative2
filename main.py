@@ -32,11 +32,9 @@ tool_bar = Frame(left_frame, width = 280, height = 550)
 tool_bar.grid(row = 2, column = 0, padx = 5, pady = 5)
 in_2 = Label(tool_bar, text = "Insert in the next text box the name of your txt \n Example: test1.txt").grid(row = 0, column = 0, padx = 5, pady = 5)
 txt = Entry(tool_bar, textvariable = entrada, width = 46).grid(row = 2, column = 0, padx = 5, pady = 5)
-but_1 = Button(tool_bar, text='Read', command = read).grid(row=3, column = 0, padx = 5, pady = 5)
-but_2 = Button(tool_bar, text='Refresh').grid(row=3, column=1, padx = 5, pady = 5)
-print(txt)
-print(but_1)
-in_3 = Label(tool_bar, textvariable = txt).grid(row = 3, column = 1)
+but_1 = Button(tool_bar, text='Read', command = read).grid(row=3)
+but_2 = Button(tool_bar, text='Refresh').grid(row=4)
+#If you want to refresh the .txt click the 'refresh' button
 
 #Right_Frame_design
 right_frame = Frame(window, width = 670, height = 590, bg='grey')
