@@ -5,7 +5,8 @@ from tkinter import *
 def read(): #Lectura de la entrada
     t = entrada.get()
     text = open_txt(t)
-    in_3 = in_2 = Label(right_frame, text = f"La lectura del {entrada.get()}").grid(row = 0, column = 0, padx = 5, pady = 5)
+    in_3 = Label(right_frame, text = f"La lectura del {entrada.get()}").grid(row = 0, column = 0, padx = 5, pady = 5)
+    in_4 = Label(right_frame, text = text).grid(row = 1, column = 0, padx = 5, pady = 5)
     
 
 def open_txt(texto): #Apertura de archivo
