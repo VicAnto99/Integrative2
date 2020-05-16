@@ -31,5 +31,5 @@ in_3 = Label(tool_bar, textvariable = txt).grid(row = 3, column = 1)
 right_frame = Frame(window, width = 670, height = 590, bg='grey')
 right_frame.grid(row = 0, column = 1, padx = 10, pady = 10)
 
-
+#Prueba vic
 window.mainloop()
