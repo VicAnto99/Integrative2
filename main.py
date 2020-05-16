@@ -1,3 +1,9 @@
+#Computational Mathematics
+#Integrative Practice 2
+#Victor Antonio Godínez Rodríguez A01339529
+#Raúl González Cardona A01654995
+#Gilberto Huesca Juárez (Head of the Computer Department at Tec de Monterrey CCM)
+
 #Imports
 from tkinter import *
 
