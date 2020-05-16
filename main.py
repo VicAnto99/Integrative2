@@ -18,7 +18,7 @@ def del_right():
     del_entry()
 
 def del_entry():
-    txt.set("")
+    entrada.set("")
 
 #Main
 window = Tk()
