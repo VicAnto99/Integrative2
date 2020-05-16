@@ -4,8 +4,19 @@ from tkinter import *
 #Definitions
 def read():
     t = entrada.get()
+    text = open_txt(t)
+    print(text)
 
-    print(t)
+
+
+#Apertura de archivo
+def open_txt(texto):
+    archivo = open(texto, 'r')
+    text = archivo.read()
+    archivo.close()
+
+    return (text)
+
 
 #Main
 
