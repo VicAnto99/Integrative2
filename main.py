@@ -1,15 +1,11 @@
 #Imports
-#import tkinter
-#holaksad
-
 from tkinter import *
 
 #Definitions
 def read():
     t = txt.get()
-    #text.set(t)
+
 #Main
-#text = StringVar()
 
 window = Tk()
 window.title("Integrative practice 2")
@@ -31,6 +27,4 @@ in_3 = Label(tool_bar, textvariable = txt).grid(row = 3, column = 1)
 right_frame = Frame(window, width = 670, height = 590, bg='grey')
 right_frame.grid(row = 0, column = 1, padx = 10, pady = 10)
 
-#Prueba vic
-#Prueba raul
 window.mainloop()
