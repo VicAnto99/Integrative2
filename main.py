@@ -5,7 +5,7 @@
 #Gilberto Huesca Juárez (Head of the Computer Department at Tec de Monterrey CCM)
 
 #Imports
-from tkinter import *
+from tkinter import Label, StringVar, Button, Entry, Tk, Frame, messagebox
 
 #Definitions
 def read(): #Lectura de la entrada
@@ -26,6 +26,10 @@ def del_right():
     in_3 = Label(tool_bar_2, textvariable = right_display).grid(row = 0, column = 0, padx = 5, pady = 5)
     in_6 = Label(tool_bar_2, textvariable = right_display2).grid(row = 1, column = 0, padx = 5, pady = 5)
     del_entry()
+    btn_4 = Button(tool_bar_2, text = '#QuedateEnCasa', command = quedateEnCasa).grid(row= 3, column = 0, padx = 5, pady = 5)
+
+def quedateEnCasa():
+    messagebox.showinfo(message = "Please stay at home! :)", title = "DANGER!!!")
 
 def del_entry():
     entrada.set("")
