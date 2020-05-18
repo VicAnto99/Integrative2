@@ -79,6 +79,4 @@ tool_bar_2.grid(row = 2, column = 0, padx = 5, pady = 5)
 in_3 = Label(tool_bar_2, textvariable = right_display).grid(row = 0, column = 0, padx = 5, pady = 5)
 in_6 = Label(tool_bar_2, textvariable = right_display2).grid(row = 1, column = 0, padx = 5, pady = 5)
 
-#btn_4 = Button(tool_bar, text = 'QuedateEnCasa', command = quedateEnCasa).grid() Hacer un warning que diga "Quedate en casa!"
-
 window.mainloop()
