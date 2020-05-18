@@ -70,9 +70,6 @@ but_3 = Button(tool_bar, text = "Parsing", command = parsing).grid(row= 4, colum
 in_4 = Label(tool_bar, text = "If you want to refresh the .txt click the 'refresh' button").grid(row = 5, column = 0, padx = 5, pady = 5)
 but_2 = Button(tool_bar, text='Refresh', command = del_right).grid(row=6, column = 0, padx = 5, pady = 5)
 
-
-
-
 #Right_Frame
 tool_bar_2 = Frame(right_frame, width = 650, height = 580)
 tool_bar_2.grid(row = 2, column = 0, padx = 5, pady = 5)
