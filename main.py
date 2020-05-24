@@ -28,14 +28,16 @@ def quedateEnCasa():
 def del_entry():
     entrada.set("")
     str_par.set("")
+    int_par.set("")
 
 def parsing():
     t = entrada.get()
     text = open_txt(t)
     right_display.set(f"La lectura del {t} \n {text}")
     in_3 = Label(tool_bar_2, textvariable = right_display).grid(row = 0, column = 0, padx = 5, pady = 5)
-    t = str_par.get() 
-    right_display2.set(f"The String that you want to parsing: \n {t}")
+    t = str_par.get()
+    i = int(int_par.get())
+    right_display2.set(f"The String that you want to parsing: \n {t} \n With floors {i}")
     in_6 = Label(tool_bar_2, textvariable = right_display2).grid(row = 1, column =0, padx = 5, pady =5)
 
 
@@ -50,6 +52,7 @@ entrada = StringVar()
 right_display = StringVar()
 right_display.set("Welcome! :)")
 str_par = StringVar()
+int_par = StringVar()
 right_display2 = StringVar()
 
 #Left_Frame_design and Right_Frame_design
@@ -66,9 +69,11 @@ in_2 = Label(tool_bar, text = "Insert in the next text box the name of your txt 
 txt_1 = Entry(tool_bar, textvariable = entrada, width = 46).grid(row = 1, column = 0, padx = 5, pady = 5)
 in_5 = Label(tool_bar, text = "Enter a string for parsing").grid(row = 2, column = 0, padx = 5, pady = 5)
 txt_2 = Entry(tool_bar, textvariable = str_par, width = 46).grid(row = 3, column = 0, padx = 5, pady = 5)
-but_3 = Button(tool_bar, text = "Parsing", command = parsing).grid(row= 4, column = 0, padx = 5, pady = 5)
-in_4 = Label(tool_bar, text = "If you want to refresh the .txt click the 'refresh' button").grid(row = 5, column = 0, padx = 5, pady = 5)
-but_2 = Button(tool_bar, text='Refresh', command = del_right).grid(row=6, column = 0, padx = 5, pady = 5)
+in_7 = Label(tool_bar, text = "Enter the integer that say the floorson your tree").grid(row = 4, column = 0, padx = 5, pady = 5)
+txt_3 = Entry(tool_bar, textvariable = int_par, width = 46).grid(row = 5, column = 0, padx = 5, pady = 5)
+but_3 = Button(tool_bar, text = "Parsing", command = parsing).grid(row= 6, column = 0, padx = 5, pady = 5)
+in_4 = Label(tool_bar, text = "If you want to refresh the .txt click the 'refresh' button").grid(row = 7, column = 0, padx = 5, pady = 5)
+but_2 = Button(tool_bar, text='Refresh', command = del_right).grid(row=8, column = 0, padx = 5, pady = 5)
 
 #Right_Frame
 tool_bar_2 = Frame(right_frame, width = 650, height = 580)
