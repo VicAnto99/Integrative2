@@ -37,12 +37,19 @@ def parsing_1():
     in_3 = Label(tool_bar_2, textvariable = right_display).grid(row = 0, column = 0, padx = 5, pady = 5)
     t = str_par.get()
     i = int(int_par.get())
-    right_display2.set(f"The String that you want to parsing: \n {t} \n With floors {i}")
+    right_display2.set(f"The String that you want to parsing: \n {t} \n With {i} levels")
     in_6 = Label(tool_bar_2, textvariable = right_display2).grid(row = 1, column =0, padx = 5, pady =5)
-    parsing_2(text, t, i)
+    parsing_2(te, t, i)
 
-def parsing_2(grammar, string, integer):
-    print(grammar)
+def parsing_2(te, string, integer):
+    test = open(te, 'r')
+    grammmar = test.readlines()
+    test.close()
+    non_terminal = grammmar[0].split(',')
+    for i in range(len(non_terminal)):
+        non_terminal[i].replace("\n", '')
+    terminal = grammmar[1].split(',')
+    print(non_terminal, terminal)
     print(string)
     print(integer)
 
@@ -74,7 +81,7 @@ in_2 = Label(tool_bar, text = "Insert in the next text box the name of your txt 
 txt_1 = Entry(tool_bar, textvariable = entrada, width = 46).grid(row = 1, column = 0, padx = 5, pady = 5)
 in_5 = Label(tool_bar, text = "Enter a string for parsing").grid(row = 2, column = 0, padx = 5, pady = 5)
 txt_2 = Entry(tool_bar, textvariable = str_par, width = 46).grid(row = 3, column = 0, padx = 5, pady = 5)
-in_7 = Label(tool_bar, text = "Enter the integer that say the floorson your tree").grid(row = 4, column = 0, padx = 5, pady = 5)
+in_7 = Label(tool_bar, text = "Enter the integer of levels for your tree").grid(row = 4, column = 0, padx = 5, pady = 5)
 txt_3 = Entry(tool_bar, textvariable = int_par, width = 46).grid(row = 5, column = 0, padx = 5, pady = 5)
 but_3 = Button(tool_bar, text = "Parsing", command = parsing_1).grid(row= 6, column = 0, padx = 5, pady = 5)
 in_4 = Label(tool_bar, text = "If you want to refresh the .txt click the 'refresh' button").grid(row = 7, column = 0, padx = 5, pady = 5)
