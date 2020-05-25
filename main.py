@@ -45,11 +45,9 @@ def parsing_2(te, string, integer):
     test = open(te, 'r')
     grammmar = test.readlines()
     test.close()
-    non_terminal = grammmar[0].split(',')
-    for i in range(len(non_terminal)):
-        non_terminal[i].replace("\n", '')
-    terminal = grammmar[1].split(',')
-    print(non_terminal, terminal)
+    non_terminal = grammmar[0].replace("\n", '').split(',')
+    terminal = grammmar[1].replace("\n", '').split(',')
+    start_symbol = grammmar[1].replace("\n", '').split(',')
     print(string)
     print(integer)
 
