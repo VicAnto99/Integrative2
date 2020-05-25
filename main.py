@@ -42,12 +42,19 @@ def parsing_1():
     parsing_2(te, t, i)
 
 def parsing_2(te, string, integer):
+    productions = []
     test = open(te, 'r')
     grammmar = test.readlines()
     test.close()
     non_terminal = grammmar[0].replace("\n", '').split(',')
     terminal = grammmar[1].replace("\n", '').split(',')
-    start_symbol = grammmar[1].replace("\n", '').split(',')
+    start_symbol = grammmar[2].replace("\n", '').split(',')
+    for i in range(3, len(grammmar)):
+        productions.append(grammmar[i].replace("\n", '').split('->'))
+    print(non_terminal)
+    print(terminal)
+    print(start_symbol)
+    print(productions)
     print(string)
     print(integer)
 
