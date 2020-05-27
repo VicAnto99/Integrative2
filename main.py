@@ -6,6 +6,7 @@
 
 #Imports
 from tkinter import Label, StringVar, Button, Entry, Tk, Frame, messagebox
+from queue import Queue
 
 #Definitions
 def open_txt(texto): #Apertura de archivo
@@ -51,12 +52,27 @@ def parsing_2(te, string, integer):
     start_symbol = grammmar[2].replace("\n", '').split(',')
     for i in range(3, len(grammmar)):
         productions.append(grammmar[i].replace("\n", '').split('->'))
-    print(non_terminal)
+    """print(non_terminal)
     print(terminal)
     print(start_symbol)
     print(productions)
     print(string)
-    print(integer)
+    print(integer)"""
+
+    q = Queue(maxsize = 0)
+    q.put(start_symbol)
+    q.put(start_symbol)
+    q.put(start_symbol)
+    p = ''
+    #print("Afuera del ciclo antes del ciclo")
+    while ((q.empty() != True) or (p != string)):
+        print("Adentro del ciclo")
+        print(q.get())
+    #print("Afuera del ciclo despues del ciclo")
+    if(p == string):
+        in_7 = Label(tool_bar_2, text = "String accepted").grid(row = 0, column = 1, padx = 5, pady =5)
+    else:
+        in_7 = Label(tool_bar_2, text = "String is not accepted").grid(row = 0, column = 1, padx = 5, pady =5)        
 
 #Main
 window = Tk()
