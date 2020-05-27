@@ -58,17 +58,56 @@ def parsing_2(te, string, integer):
     print(productions)
     print(string)
     print(integer)"""
-
-    q = Queue(maxsize = 0)
-    q.put(start_symbol)
-    q.put(start_symbol)
-    q.put(start_symbol)
+    que = Queue(maxsize = 0)
+    que.put(start_symbol[0])
     p = ''
-    #print("Afuera del ciclo antes del ciclo")
-    while ((q.empty() != True) or (p != string)):
+    done = False
+    print("Afuera del ciclo antes del ciclo")
+    while ((que.empty() != True) or (p != string)):
         print("Adentro del ciclo")
-        print(q.get())
-    #print("Afuera del ciclo despues del ciclo")
+        q = que.get()
+        done = False
+        while((done != True) and (p != string)):
+            for j in range(len(q)):
+                print("Adentro del primer for")
+                if(q[j].isupper()):
+                    print(f"Adentro del primer for {q[j]}")
+                    q[j]
+                """print("Adentro del segundo ciclo")
+                if(non == ''):
+                    done == True
+                else:
+                    q3 = ''
+                    com = ''
+                    for j in range(len(productions)):
+                        print("Adentro del segundo for")
+                        if(productions[j][0] == non):
+                            q2 = q.replace(non, productions[j][1])
+                            print(f"Adentro del if que se cambia al {non} {productions[j][0]} {productions[j][1]}")
+                            print(q2)
+                            if(q2[0].isupper()):
+                                que.put(q2)
+                                done = True
+                                print(f" de q2 cola")
+                            else:
+                                for i in range(len(q2)):
+                                    if(q2[i].islower()):
+                                        q3 = q3 + q2[i]
+                                        print(q3)
+                                if(q3 == string):
+                                    p = q3
+                                else:
+                                    for i in range(len(q3)):
+                                        com = com + string[i]
+                                        print(f"{com} comparacion")
+                                    if(com == q3):
+                                        que.put(q3)
+                                        print(f"{com} comparacion cola")
+                                    else:
+                                        print(f"{com} comparacion DONE")
+                                        done = True"""
+
+    print("Afuera del ciclo despues del ciclo")
     if(p == string):
         in_7 = Label(tool_bar_2, text = "String accepted").grid(row = 0, column = 1, padx = 5, pady =5)
     else:
