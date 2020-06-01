@@ -72,8 +72,8 @@ def parsing_2(te, string, integer):
                 print("Adentro del primer for")
                 if(q[j].isupper()):
                     print(f"Adentro del primer for {q[j]}")
-                    q[j]
-                """print("Adentro del segundo ciclo")
+                    non = q[j]
+                print("Adentro del segundo ciclo")
                 if(non == ''):
                     done == True
                 else:
@@ -105,7 +105,7 @@ def parsing_2(te, string, integer):
                                         print(f"{com} comparacion cola")
                                     else:
                                         print(f"{com} comparacion DONE")
-                                        done = True"""
+                                        done = True
 
     print("Afuera del ciclo despues del ciclo")
     if(p == string):
