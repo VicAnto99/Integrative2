@@ -76,6 +76,7 @@ def parsing_2(te, string, integer):
                     q3 = ''
                     con = ''
                     for j in range(len(productions)):
+                        #BUscar un tipo index off
                         print(f"Adentro del segundo for {j}\n")
                         q2 = q.replace(non, productions[j][1])
                         print(f"Adentro del if que cambia al {non} con {productions[j][0]} en {productions[j][1]}\n")
