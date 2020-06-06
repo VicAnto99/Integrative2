@@ -64,51 +64,17 @@ def parsing_2(te, string, integer):
         q = que.pop()
         level += 1
         while((done != True) and (p != string) and (level <= integer)):
-            for i in range(len(productions)):
-                for j in range(len(q)):
-                    q1 = any(tlist in q[j] for tlist in non_terminal)
-                    if(q1 == True):
-                        if(productions[i][0] == q[j]):
-                            p = q.replace(q[j], productions[i][1])
-                            temp.setdefault(q, set()).add(p)
-                            forward = False
-                            temp1 = []
-                            for k in range(len(p)):
-                                still = any(tlist in p[k] for tlist in non_terminal)
-                                if(still == True):
-                                    if(p[k] == p[0]):
-                                        forward = True
-                                    break
-                                else:
-                                    temp1.append(p[k])
-                            counter = 0
-                            if((forward == False) and (len(temp1) <= len(string))):
-                                for k in range(len(temp1)):
-                                    if(temp1[k] == string[k]):
-                                        counter += 1
-                                if(len(temp1) == counter):
-                                    forward = True
-                            if((still != False) and (forward == True)):
-                                que.append(p)
-                        else:
-                            done = True
-                        break  
-                    
-#AQUI EMPIEZA A IMPRIMIR 
-    if(p == string):
-        print("String Accepted")
-    elif(integer < level):
-        print("No solution")
-    else:
-        print("String not Accepted")
-    
-    tree(temp,start_symbol[0])
-
-def tree(temp, start_symbol, depth=0):
-    print('   |-' * depth + start_symbol)
-    for node in sorted(temp.get(start_symbol, [])):
-        tree(temp, node, depth+1)
-
+            #for i in range(len(productions)):
+                for i in range(len(q)):
+                    if(q[i].isupper()):
+                        non = q[i]
+                    if(non == ''):
+                        done = True
+                    else:
+                        q2 = ''
+                        con = ''
+                        for j in range(len(productions)):
+                            q2 = q. 
         
     '''que = Queue(maxsize = 0)
     que.append(start_symbol[0])
