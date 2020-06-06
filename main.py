@@ -52,8 +52,66 @@ def parsing_2(te, string, integer):
     start_symbol = grammmar[2].replace("\n", '').split(',')
     for i in range(3, len(grammmar)):
         productions.append(grammmar[i].replace("\n", '').split('->'))
-    que = Queue(maxsize = 0)
-    que.put(start_symbol[0])
+
+    que = []
+    que.append(start_symbol[0])
+    p = ' '
+    level = 1
+    temp = {}
+   
+    while ((len(que) != 0) and (p != string) and (level <= integer)):
+        done = False
+        q = que.pop()
+        level += 1
+        while((done != True) and (p != string) and (level <= integer)):
+            for i in range(len(productions)):
+                for j in range(len(q)):
+                    q1 = any(tlist in q[j] for tlist in non_terminal)
+                    if(q1 == True):
+                        if(productions[i][0] == q[j]):
+                            p = q.replace(q[j], productions[i][1])
+                            temp.setdefault(q, set()).add(p)
+                            forward = False
+                            temp1 = []
+                            for k in range(len(p)):
+                                still = any(tlist in p[k] for tlist in non_terminal)
+                                if(still == True):
+                                    if(p[k] == p[0]):
+                                        forward = True
+                                    break
+                                else:
+                                    temp1.append(p[k])
+                            counter = 0
+                            if((forward == False) and (len(temp1) <= len(string))):
+                                for k in range(len(temp1)):
+                                    if(temp1[k] == string[k]):
+                                        counter += 1
+                                if(len(temp1) == counter):
+                                    forward = True
+                            if((still != False) and (forward == True)):
+                                que.append(p)
+                        else:
+                            done = True
+                        break  
+                    
+#AQUI EMPIEZA A IMPRIMIR 
+    if(p == string):
+        print("String Accepted")
+    elif(integer < level):
+        print("No solution")
+    else:
+        print("String not Accepted")
+    
+    tree(temp,start_symbol[0])
+
+def tree(temp, start_symbol, depth=0):
+    print('   |-' * depth + start_symbol)
+    for node in sorted(temp.get(start_symbol, [])):
+        tree(temp, node, depth+1)
+
+        
+    '''que = Queue(maxsize = 0)
+    que.append(start_symbol[0])
     p = ''
     level = 1
     done = False
@@ -82,7 +140,7 @@ def parsing_2(te, string, integer):
                         print(f"Adentro del if que cambia al {non} con {productions[j][0]} en {productions[j][1]}\n")
                         print(f"{q2}\n")
                         if(q2[0].isupper()):
-                            que.put(q2)
+                            que.append(q2)
                             done = True
                             print(f"metida en la cola {q2}")
                         else:
@@ -97,7 +155,7 @@ def parsing_2(te, string, integer):
                                     con = con + q3[l]
                                     print(f"{con} comparacion")
                                 if(con == q3):
-                                    que.put(q3)
+                                    que.append(q3)
                                     print(f"{con} comparacion cola")
                                 else:
                                     print(f"{con} comparacion Done")
@@ -108,7 +166,7 @@ def parsing_2(te, string, integer):
         in_7 = Label(tool_bar_2, textvariable = result).grid(row = 0, column = 1, padx = 5, pady =5)
     else:
         result.set("String is not accepted")
-        in_7 = Label(tool_bar_2, textvariable = result).grid(row = 0, column = 1, padx = 5, pady =5)        
+        in_7 = Label(tool_bar_2, textvariable = result).grid(row = 0, column = 1, padx = 5, pady =5)'''        
 
 #Main
 window = Tk()
