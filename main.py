@@ -104,14 +104,29 @@ def parsing_2(te, string, integer):
         result.set("String accepted :)")
         Label(tool_bar_2, textvariable = result).grid(row = 0, column = 1, padx = 5, pady = 5)
         Label(tool_bar_2, textvariable = result2).grid(row = 1, column = 1, padx = 5, pady = 5)
+        messagebox.showinfo(message = "Please check the terminal :)", title = "Tree!!!")
     elif(len(string) > integer):
         result.set("There's no solution because lower tree level .-.")
         Label(tool_bar_2, textvariable = result).grid(row = 0, column = 1, padx = 5, pady = 5)
         Label(tool_bar_2, textvariable = result2).grid(row = 1, column = 1, padx = 5, pady = 5)
+        messagebox.showinfo(message = "Please check the terminal :)", title = "Tree!!!")
     else:
         result.set("String not accepted :(")
         Label(tool_bar_2, textvariable = result).grid(row = 0, column = 1, padx = 5, pady = 5)
         Label(tool_bar_2, textvariable = result2).grid(row = 1, column = 1, padx = 5, pady = 5)
+        messagebox.showinfo(message = "Please check the terminal :)", title = "Tree!!!")
+
+    print_tree(tree, integer)
+
+def print_tree(tree, level):
+    if not isinstance(tree, dict) and not isinstance(tree, list):
+        print("\n"*level+str(tree))
+    else:
+        for key in tree:
+            print("\n"*level+str(tree))
+            if not isinstance(tree, list):
+                print_tree(tree[key], level + 1)
+
 
 #Main
 window = Tk()
