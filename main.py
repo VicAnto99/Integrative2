@@ -95,7 +95,6 @@ def parsing_2(te, string, integer):
                                         for k in range(len(q3)):
                                             str2 = str2+string[k]
                                         if(str2 == q3):
-                                            print(f"{q2} agregado por el prefijo igual")
                                             q.append(q2)
                         else:
                             done = True
@@ -113,8 +112,6 @@ def parsing_2(te, string, integer):
         result.set("String not accepted :(")
         Label(tool_bar_2, textvariable = result).grid(row = 0, column = 1, padx = 5, pady = 5)
         Label(tool_bar_2, textvariable = result2).grid(row = 1, column = 1, padx = 5, pady = 5)
-
-        
 
 #Main
 window = Tk()
@@ -159,4 +156,3 @@ Label(tool_bar_2, textvariable = right_display).grid(row = 0, column = 0, padx =
 Label(tool_bar_2, textvariable = right_display2).grid(row = 1, column = 0, padx = 5, pady = 5)
 
 window.mainloop()
-
