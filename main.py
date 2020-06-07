@@ -62,9 +62,7 @@ def parsing_2(te, string, integer):
     tree = {}
 
     while((len(q) != 0) and (p != string) and (level <= integer)):
-        print(f"nivel del arbol {level}")
         q1 = q.pop()
-        print("Pop de la cola ", q1)
         done = False
         level += 1
         while((done != True) and (p != string)):
@@ -75,14 +73,11 @@ def parsing_2(te, string, integer):
             else:        
                 for j in range(len(productions)):
                     for i in range(len(q1)):
-                        #print(f"producciones {productions[j][0]} {productions[j][1]} ")
                         if(q1[i] == productions[j][0]):
                             q2 = q1.replace(q1[i], productions[j][1])
-                            print(f"este es el replace esta es q1: {q1}, {q1[i]} remplazado por esta es q2 {q2} ")
+                            tree.setdefault(q1, set()).add(q2)
                             if(q2[0].isupper() == True):
-                                print(f"este es el primer estring {q2[0]} de {q2}")
                                 q.append(q2)
-                                print(f"{q2} fue agregada a la cola por ser mayuscula")
                             else:
                                 if(q2 == string):
                                     p = q2
@@ -94,17 +89,14 @@ def parsing_2(te, string, integer):
                                         if(q2[k].isupper() == True):
                                             q3 = q2.replace(q2[k:len2], "")
                                             break
-                                        #print(f"este es el cu3 {q3}")
                                     if(len(q3) > len(string)):
                                         done = True
                                     else:
                                         for k in range(len(q3)):
                                             str2 = str2+string[k]
-                                        #print(f"este es el esetere {str2}")
                                         if(str2 == q3):
                                             print(f"{q2} agregado por el prefijo igual")
                                             q.append(q2)
-                                        #print(f"prefijos {str2}, {q3}")
                         else:
                             done = True
     
