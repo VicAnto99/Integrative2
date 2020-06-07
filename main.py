@@ -53,29 +53,61 @@ def parsing_2(te, string, integer):
     for i in range(3, len(grammmar)):
         productions.append(grammmar[i].replace("\n", '').split('->'))
 
-    que = []
-    que.append(start_symbol[0])
-    p = ' '
+    q = Queue(maxsize = 0)
+    q.put(start_symbol[0])
+    p = ""
     level = 1
-    temp = {}
-   
-    while ((len(que) != 0) and (p != string) and (level <= integer)):
+
+    while((q.empty() != True) and (p != string) and (level <= integer)):
+        print(f"nivel del arbol {level}")
+        q1 = q.get()
+        print("Pop de la cola ", q1)
         done = False
-        q = que.pop()
         level += 1
-        while((done != True) and (p != string) and (level <= integer)):
-            #for i in range(len(productions)):
-                for i in range(len(q)):
-                    if(q[i].isupper()):
-                        non = q[i]
-                    if(non == ''):
-                        done = True
-                    else:
-                        q2 = ''
-                        con = ''
-                        for j in range(len(productions)):
-                            q2 = q. 
-        
+        while((done != True) and (p != string)):
+            if(q1.islower() == True):
+                done = True
+                if(q1 == string):
+                    p = q1
+            else:        
+                for i in range(len(q1)):
+                    print(f"entra {q1[i]} en {i} ")
+                    for j in range(len(productions)):
+                        print(f"producciones {productions[j][0]} {productions[j][1]} ")
+                        if(q1[i] == productions[j][0]):
+                            q2 = q1.replace(q1[i], productions[j][1])
+                            print("este es el replace ", q2)
+                        else:
+                            done = True
+                        if(q2[0].isupper() == True):
+                            q.put(q2)
+                            print(f"{q2} fue agregada a la cola")
+                        else:
+                            if(q2 == string):
+                                p = q2
+                            else:
+                                len2 = len(q2)
+                                str2 = ""
+                                q3 = ""
+                                for k in range(len2):
+                                    if(q2[k].isupper() == True):
+                                        q3 = q2.replace(q2[k:len2], "")
+                                    print(f"este es el cu3 {q3}")
+                                if(len(q3) > len(string)):
+                                    done = True
+                                else:
+                                    for k in range(len(q3)):
+                                        str2 = str2+string[k]
+                                    print(f"este es el esetere {str2}")
+                                    if(str2 == q3):
+                                        q.put(q2)
+    if(p == string):
+        print("string accepted")
+    elif(len(string) > integer):
+        print("there's no solution because lower tree level")
+    else:
+        print("string not accepted")
+
     '''que = Queue(maxsize = 0)
     que.append(start_symbol[0])
     p = ''
