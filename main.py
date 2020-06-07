@@ -7,6 +7,7 @@
 #Imports
 from tkinter import Label, StringVar, Button, Entry, Tk, Frame, messagebox
 from queue import Queue
+from treelib import Node, Tree
 
 #Definitions
 def open_txt(texto): #Apertura de archivo
@@ -116,17 +117,23 @@ def parsing_2(te, string, integer):
         Label(tool_bar_2, textvariable = result2).grid(row = 1, column = 1, padx = 5, pady = 5)
         messagebox.showinfo(message = "Please check the terminal :)", title = "Tree!!!")
 
-    print_tree(tree, integer)
+    print_tree(tree, start_symbol[0])
 
-def print_tree(tree, level):
-    if not isinstance(tree, dict) and not isinstance(tree, list):
-        print("\n"*level+str(tree))
-    else:
-        for key in tree:
-            print("\n"*level+str(tree))
-            if not isinstance(tree, list):
-                print_tree(tree[key], level + 1)
-
+def print_tree(tree, start_symbol):
+    added = set()
+    t = Tree()
+    while tree:
+        for key, value in tree.items():
+            if value[start_symbol] in added:
+                t.create_node(key, key, parent = value[start_symbol])
+                added.add(key)
+                tree.pop(key)
+            elif value[start_symbol] is None:
+                t.create_node(key, key)
+                added.add(key)
+                tree.pop(key)
+                break
+    t.show()
 
 #Main
 window = Tk()
