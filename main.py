@@ -108,63 +108,7 @@ def parsing_2(te, string, integer):
     else:
         print("string not accepted")
 
-    '''que = Queue(maxsize = 0)
-    que.append(start_symbol[0])
-    p = ''
-    level = 1
-    done = False
-    print("Afuera del ciclo antes del ciclo \n")
-    while ((que.empty() != True) and (p != string) and (level <= integer)):
-        print("Adentro 1\n")
-        done = False
-        q = que.get()
-        level+=1
-        while((done != True) and (p != string) and (level <= integer)):
-            print("Adentro 2\n")
-            for i in range(len(q)):
-                print(f"Adentro del primer if {i}\n")
-                if(q[i].isupper()):
-                    print(f"Adentro del primer for {q[i]}\n")
-                    non = q[i]
-                if(non == ''):
-                    done = True
-                else:
-                    q3 = ''
-                    con = ''
-                    for j in range(len(productions)):
-                        #BUscar un tipo index off
-                        print(f"Adentro del segundo for {j}\n")
-                        q2 = q.replace(non, productions[j][1])
-                        print(f"Adentro del if que cambia al {non} con {productions[j][0]} en {productions[j][1]}\n")
-                        print(f"{q2}\n")
-                        if(q2[0].isupper()):
-                            que.append(q2)
-                            done = True
-                            print(f"metida en la cola {q2}")
-                        else:
-                            for k in range(len(q2)):
-                                if(q2[0].islower()):
-                                    q3 = q3 + q2[k]
-                                    print(f"{q3}\n")
-                            if(q3 == string):
-                                p = q3
-                            else:
-                                for l in range(len(q3)):
-                                    con = con + q3[l]
-                                    print(f"{con} comparacion")
-                                if(con == q3):
-                                    que.append(q3)
-                                    print(f"{con} comparacion cola")
-                                else:
-                                    print(f"{con} comparacion Done")
-                                    done = True
-    print("Afuera del ciclo despues del ciclo\n")
-    if(p == string):
-        result.set("String accepted")
-        in_7 = Label(tool_bar_2, textvariable = result).grid(row = 0, column = 1, padx = 5, pady =5)
-    else:
-        result.set("String is not accepted")
-        in_7 = Label(tool_bar_2, textvariable = result).grid(row = 0, column = 1, padx = 5, pady =5)'''        
+        
 
 #Main
 window = Tk()
